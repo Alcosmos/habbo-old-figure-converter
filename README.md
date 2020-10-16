@@ -1,5 +1,6 @@
 # habbo-old-figure-converter
 Disassembles a given old Habbo figure String (v17&lt;) and structures it with the v18+ figure format and colors.
+Useful if you want to use an old figure for Habbo's current avatarimage.
 
 Java port of webbanditten's PHP converter with some corrections.
 
