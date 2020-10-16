@@ -52,7 +52,7 @@ public class FigureConverter {
 	}
 	
 	private static String getOldColorFromFigureList(String iPart, int iSprite, int iColorIndex) {
-		String oldFigureData = getFileAsString("site/contents/imager/oldfiguredata.json");
+		String oldFigureData = getFileAsString("imager/oldfiguredata.json");
 		
 		if (oldFigureData == null) {
 			return null;
@@ -99,7 +99,7 @@ public class FigureConverter {
 	}
 	
 	private static String convertOldColorToNew(String iPart, int iSprite, int iColorIndex) {
-		String newFigureData = getFileAsString("site/contents/imager/figuredata.json");
+		String newFigureData = getFileAsString("imager/newfiguredata.json");
 		
 		String oldColor = getOldColorFromFigureList(iPart, iSprite, iColorIndex);
 		
