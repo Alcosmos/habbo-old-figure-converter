@@ -1,4 +1,4 @@
-package com.helena.http.figure;
+package com.alcosmos.figure;
 
 
 import java.io.IOException;
@@ -18,14 +18,16 @@ public class FigureConverter {
 	 */
 	public static String convertOldToNew(String oldFigure) {
 		int start = 0;
-		String[] partsString = new String[10];
 		int[] increase_start = {0, 5, 10, 15, 20};
+		String[] partsString = new String[10];
 		
 		for (int i = 0; i < 10; i++) {
 			int length = 2;
+			
 			for (int increase : increase_start) {
 				if (increase == start) length = 3;
 			}
+			
 			partsString[i] = oldFigure.substring(start, start + length);
 			start = start + length;
 		}
@@ -37,16 +39,16 @@ public class FigureConverter {
 		
 		/*
 		 * Notice that sh parts[6] contains a quick hack because the old sandals
-		 * are broken is $ulake's imager and the newer 3206 ones are similar.
+		 * are broken is $ulake's imager and the newer 3206 shoes look similar.
 		 */
 		
-		String buildFigure;
-		buildFigure = "hr-" + parts[0] + "-" + convertOldColorToNew("hr", parts[0], parts[1]);
-		buildFigure += ".hd-" + parts[2] + "-" + convertOldColorToNew("hd", parts[2], parts[3]);
-		buildFigure += ".ch-" + parts[8] + "-" + convertOldColorToNew("ch", parts[8], parts[9]);
-		buildFigure += ".lg-" + parts[4] + "-" + convertOldColorToNew("lg", parts[4], parts[5]);
-		buildFigure += ".sh-" + (parts[6] == 730 ? 3206 : parts[6]) + "-" + convertOldColorToNew("sh", parts[6], parts[7]);
-		buildFigure += takeCareOfHats(Integer.valueOf(parts[0]), Integer.valueOf(convertOldColorToNew("hr", parts[0], parts[1])));
+		String buildFigure = 
+			   "hr-" + parts[0] + "-" + convertOldColorToNew("hr", parts[0], parts[1])
+			+ ".hd-" + parts[2] + "-" + convertOldColorToNew("hd", parts[2], parts[3])
+			+ ".ch-" + parts[8] + "-" + convertOldColorToNew("ch", parts[8], parts[9])
+			+ ".lg-" + parts[4] + "-" + convertOldColorToNew("lg", parts[4], parts[5])
+			+ ".sh-" + (parts[6] == 730 ? 3206 : parts[6]) + "-" + convertOldColorToNew("sh", parts[6], parts[7])
+			+ takeCareOfHats(Integer.valueOf(parts[0]), Integer.valueOf(convertOldColorToNew("hr", parts[0], parts[1])));
 		
 		return buildFigure;
 	}
@@ -58,7 +60,10 @@ public class FigureConverter {
 			return null;
 		}	
 		
-		// Too tired of JSON to explain nested loops, but basically it grabs the colors with the same ID as given index
+		/* 
+		 * Too tired of JSON to explain nested loops, but basically
+		 * it grabs the colors with the same ID as given index
+		 */
 		JSONObject colorsJSON = new JSONObject(oldFigureData);
 		JSONObject gendersObject = colorsJSON.getJSONObject("genders");
 		
@@ -95,6 +100,7 @@ public class FigureConverter {
 				}
 			}
 		}
+		
 		return null;
 	}
 	
@@ -152,7 +158,7 @@ public class FigureConverter {
 			// Xmas rodolph
 			case 580:
 			case 176:
-				return ".ha-1007-0";
+				return ".ha-1007-0.fa-1202-70";
 			// Bunny
 			case 590:
 			case 177:
@@ -181,7 +187,7 @@ public class FigureConverter {
 	}
 	
 	/**
-	 * Independent file reader
+	 * Standalone file reader
 	 */
 	private static String getFileAsString(String route) {
 		try {
