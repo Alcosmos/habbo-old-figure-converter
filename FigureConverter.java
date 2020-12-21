@@ -18,19 +18,21 @@ public class FigureConverter {
 	 */
 	public static String convertOldToNew(String oldFigure) {
 		int start = 0;
-		int[] increase_start = {0, 5, 10, 15, 20};
 		String[] partsString = new String[10];
 		
 		for (int i = 0; i < 10; i++) {
 			int length = 2;
 			
-			for (int increase : increase_start) {
-				if (increase == start) length = 3;
+			for (int j = 0; j <= 20; j += 5) {
+				if (j == start) {
+					length = 3;
+				}
 			}
 			
 			partsString[i] = oldFigure.substring(start, start + length);
 			start = start + length;
 		}
+		
 		int[] parts = new int[partsString.length];
 		
 		for (int i = 0; i < parts.length; i++) {
