@@ -38,10 +38,11 @@ public class FigureConverter {
 		}
 		
 		/*
-		 * Notice that sh parts[6] contains a quick hack because the old sandals
-		 * are broken is $ulake's imager and the newer 3206 shoes look similar.
+		 * Notice that sh parts[6] in line 51 contains a quick hack because the old
+		 * sandals are broken is $ulake's imager and the newer 3206 shoes look similar.
+		 * Replace (parts[6] == 730 ? 3206 : parts[6]) with just parts[6] if you got a
+		 * fully working imager.
 		 */
-		
 		String buildFigure = 
 			   "hr-" + parts[0] + "-" + convertOldColorToNew("hr", parts[0], parts[1])
 			+ ".hd-" + parts[2] + "-" + convertOldColorToNew("hd", parts[2], parts[3])
